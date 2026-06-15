@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shoot-on-the-Move — David Cui</title>
+<meta name="description" content="How I built a velocity-compensated targeting system that lets a turretless FRC robot score over 90% of shots while driving." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <a class="nav__mark" href="index.html" aria-label="David Cui, home">
+    <span class="nav__mark-bracket">[</span>DC<span class="nav__mark-bracket">]</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main" class="page">
+  <a class="back" href="index.html#work">&larr; Back to work</a>
+
+  <p class="page__sub">FRC Team 5829 &middot; 2026 season &middot; Java</p>
+  <h1>Shoot-on-the-Move</h1>
+  <p class="page__lede">
+    A velocity-compensated targeting system that lets our turretless robot score
+    <strong>over 90% of shots while driving</strong>, instead of stopping to line up each one.
+  </p>
+
+  <div class="pill-row">
+    <span class="tag">Vector math</span>
+    <span class="tag tag--muted">Iterative solver</span>
+    <span class="tag tag--muted">Measured lookup tables</span>
+    <span class="tag tag--muted">Field-relative control</span>
+  </div>
+
+  <h2>The problem</h2>
+  <p>
+    In the 2026 FRC game, our robot scores by launching foam balls into a funnel-shaped goal.
+    Shooting while stationary is the baseline. The hard version is shooting <em>while moving</em> toward
+    the next objective, which saves a cycle of stopping, squaring up, and re-accelerating every time.
+    It is harder for us specifically because our robot has <strong>no turret</strong>: the whole chassis
+    has to point the shot, so the aiming math and the driving are coupled.
+  </p>
+
+  <h2>The idea</h2>
+  <p>
+    The ball spends real time in the air. During that flight time, the robot keeps moving, so the ball
+    inherits the robot's velocity. If I aim straight at the goal while driving, the shot drifts off by
+    exactly velocity times flight time. So instead of aiming at the goal, I aim at a
+    <strong>compensated point</strong> offset from the goal in the direction <em>opposite</em> the robot's
+    motion. The moving ball then curves back into the real goal.
+  </p>
+
+  <figure>
+    <!-- inline SVG diagram -->
+    <img src="sotm-diagram.svg" alt="Vector diagram: the robot moves with velocity v. A dashed line points at the real goal. The compensated aim point is offset from the goal by the lead vector, equal to velocity times time of flight, in the direction opposite the robot's motion. The robot shoots along the solid line toward the compensated point." />
+    <figcaption>The aim point leads the goal by <code>v &times; TOF</code>, opposite the direction of travel.</figcaption>
+  </figure>
+
+  <h2>Measuring the real world</h2>
+  <p>
+    Two quantities depend on distance: how fast to spin the flywheel (RPM) and how long the ball stays
+    in the air (time of flight). Rather than derive these from theory and fight every real-world variable,
+    I measured them. I recorded shots at known distances, timed the flight with my phone, and built two
+    <strong>interpolating lookup tables</strong> from the data, which act like an accessible linear
+    regression between the points I sampled.
+  </p>
+  <pre><code><span class="c-kw">public</span> <span class="c-kw">final</span> <span class="c-kw">static</span> InterpolatingDoubleTreeMap TOF = <span class="c-kw">new</span> InterpolatingDoubleTreeMap();
+<span class="c-kw">static</span> {
+  <span class="c-kw">for</span> (var e : List.of(
+    Pair.of(Meters.of(<span class="c-n">2</span>),  Seconds.of(<span class="c-n">0.85</span>)),
+    Pair.of(Meters.of(<span class="c-n">4</span>),  Seconds.of(<span class="c-n">1.13</span>)),
+    Pair.of(Meters.of(<span class="c-n">6</span>),  Seconds.of(<span class="c-n">1.49</span>)),
+    Pair.of(Meters.of(<span class="c-n">8</span>),  Seconds.of(<span class="c-n">1.85</span>)),
+    Pair.of(Meters.of(<span class="c-n">10</span>), Seconds.of(<span class="c-n">2.21</span>)),
+    Pair.of(Meters.of(<span class="c-n">12</span>), Seconds.of(<span class="c-n">2.57</span>))))
+  { TOF.put(e.getFirst().in(Meters), e.getSecond().in(Seconds)); }
+}</code></pre>
+
+  <h2>The iterative solver</h2>
+  <p>
+    Here is the catch that makes this interesting. The lead depends on the flight time, the flight time
+    depends on the distance to the target, but the target is the compensated point I am trying to find.
+    The unknown is on both sides. I solve it by <strong>fixed-point iteration</strong>: start by aiming at
+    the real goal, compute the flight time for that distance, move the aim point, and repeat. It converges
+    in two or three passes.
+  </p>
+  <pre><code><span class="c-cm">/** Virtual goal that compensates for robot velocity, so the</span>
+<span class="c-cm"> *  robot aims ahead of the real goal while moving. */</span>
+<span class="c-kw">public</span> Pose2d <span class="c-fn">getDynamicHubLocation</span>() {
+  Translation2d hub = Constants.getHubPose2D().getTranslation();
+  Translation2d vel = getFieldVelocity();          <span class="c-cm">// robot velocity</span>
+  Translation2d aim = hub;
+
+  <span class="c-kw">for</span> (<span class="c-kw">int</span> i = <span class="c-n">0</span>; i &lt; <span class="c-n">15</span>; i++) {            <span class="c-cm">// converges in ~2–3</span>
+    <span class="c-kw">double</span> dist = aim.minus(robotPos).getNorm();
+    <span class="c-kw">double</span> tof  = Constants.TOF.get(dist);       <span class="c-cm">// measured lookup</span>
+    aim = hub.minus(vel.times(tof));             <span class="c-cm">// lead the goal</span>
+  }
+  <span class="c-kw">return</span> <span class="c-kw">new</span> Pose2d(aim, <span class="c-kw">new</span> Rotation2d());
+}</code></pre>
+  <p>
+    The robot then aims at <code>aim</code> instead of <code>hub</code>, and both the flywheel RPM and the
+    flight time are read from the same compensated distance so the model stays internally consistent. This
+    works whether the robot is moving toward, away from, or sideways to the goal.
+  </p>
+
+  <h2>Seeing it work</h2>
+  <p>Two test runs, one at Katy and one at Awty:</p>
+  <div class="videos">
+    <!-- TODO: upload the .mov files to YouTube (unlisted is fine) and paste the links here -->
+    <a class="video-card" href="#" data-todo>
+      <span class="vk">Demo &middot; tested at Katy</span>
+      <span class="vv">Watch the run &rarr;</span>
+    </a>
+    <a class="video-card" href="#" data-todo>
+      <span class="vk">Demo &middot; tested at Awty</span>
+      <span class="vv">Watch the run &rarr;</span>
+    </a>
+  </div>
+
+  <h2>What still breaks, and what's next</h2>
+  <p>
+    The system is not perfect, and the way it fails is the interesting part. Misses cluster around
+    <strong>sudden changes in direction</strong>. That is not a flaw in the solver. It comes from an
+    assumption baked into the model: that the robot's velocity is constant over the ball's whole flight.
+    When the robot accelerates or reverses mid-flight, the ball already left the shooter carrying the old
+    velocity, and no aiming math can recover a shot that is already in the air.
+  </p>
+  <div class="callout">
+    <p>
+      So the fix is not "solve harder." Switching to Newton's method will converge faster and more cleanly
+      than fixed-point iteration, but the real gains are in modeling the acceleration and accounting for the
+      command latency between deciding to shoot and the ball actually leaving.
+    </p>
+  </div>
+  <p>
+    I'm currently working through the FRC documentation's writeup on Newton's method for dynamic shooting and
+    testing whether a short latency-compensation term meaningfully cuts the misses on direction changes.
+  </p>
+
+  <h2>What I took from it</h2>
+  <p>
+    This started as a classroom idea, that horizontal and vertical motion are independent, and turned into a
+    system that runs on a real robot in real matches. The most useful lesson was learning to tell a
+    convergence problem apart from a modeling problem, because they have completely different fixes.
+  </p>
+
+  <p style="margin-top:40px">
+    <!-- TODO: replace with your real repo link -->
+    <a class="link" href="#" data-todo>View the code on GitHub &rarr;</a>
+  </p>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Zhihao David Cui</p>
+  <p class="footer__built"><a href="index.html">Home</a> &middot; <a href="#top">Back to top</a></p>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
