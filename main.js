@@ -75,7 +75,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
   }
 
   function grid() {
-    ctx.strokeStyle = "rgba(61,214,196,0.05)";
+    ctx.strokeStyle = "rgba(33,31,28,0.05)";
     ctx.lineWidth = 1;
     for (let x = 0; x <= W; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
     for (let y = 0; y <= H; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
@@ -109,7 +109,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
     ctx.save();
     ctx.translate(p.x, p.y); ctx.rotate(ang);
     ctx.fillStyle = C.teal; ctx.strokeStyle = C.teal; ctx.lineWidth = 2;
-    ctx.fillStyle = "rgba(61,214,196,0.18)";
+    ctx.fillStyle = "rgba(47,111,98,0.12)";
     ctx.fillRect(-13, -13, 26, 26);
     ctx.strokeRect(-13, -13, 26, 26);
     ctx.fillStyle = C.teal;
@@ -153,7 +153,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
     // compensated aim point
     ctx.fillStyle = C.teal;
     ctx.beginPath(); ctx.arc(aim.x, aim.y, 5, 0, Math.PI * 2); ctx.fill();
-    ctx.strokeStyle = "rgba(61,214,196,0.4)"; ctx.lineWidth = 1;
+    ctx.strokeStyle = "rgba(47,111,98,0.35)"; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.arc(aim.x, aim.y, 11, 0, Math.PI * 2); ctx.stroke();
     label("aim", aim.x + 14, aim.y - 8, C.teal);
 
