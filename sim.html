@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Unity Robotics Simulator — David Cui</title>
+<meta name="description" content="A Unity-based simulator for rehearsing FRC autonomous routines and strategy before the real robot exists." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <a class="nav__mark" href="index.html" aria-label="David Cui, home">
+    <span class="nav__mark-bracket">[</span>DC<span class="nav__mark-bracket">]</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="index.html#robotics">Robotics</a>
+    <a href="index.html#impact">Impact</a>
+    <a href="index.html#violin">Violin</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main" class="page">
+  <a class="back" href="index.html#robotics">&larr; Back to robotics</a>
+
+  <p class="page__sub">FRC Team 5829 &middot; Unity &middot; simulation tooling</p>
+  <h1>Unity Robotics Simulator</h1>
+  <p class="page__lede">
+    A simulator for rehearsing autonomous routines and strategy <strong>before the real robot
+    exists</strong>, so we stop competing for time on one physical bot.
+  </p>
+
+  <div class="pill-row">
+    <span class="tag">Unity</span>
+    <span class="tag tag--muted">Robot model import</span>
+    <span class="tag tag--muted">Multiplayer</span>
+    <span class="tag tag--muted">Driver practice</span>
+  </div>
+
+  <h2>Why it exists</h2>
+  <p>
+    On an FRC team, the physical robot is the bottleneck. There is one of it, it is often half
+    disassembled, and everyone &mdash; drivers, programmers, strategists &mdash; needs time on it.
+    A simulator removes that bottleneck. If the field, the robot, and the controls live in software,
+    people can practice and iterate in parallel, and a bad autonomous routine fails in the sim instead
+    of breaking real hardware.
+  </p>
+
+  <figure>
+    <img src="sim-diagram.svg" alt="Diagram of the simulator loop: a custom robot model is imported into Unity physics, which feeds simulated sensors to the same control code the real robot runs; the session is shared in multiplayer for driver and programmer practice, and what is learned feeds back into the control code before deploying to the real robot." />
+    <figcaption>The sim closes the same loop as the real robot: sensors in, commands out &mdash; just in software.</figcaption>
+  </figure>
+
+  <h2>What I worked on</h2>
+  <p>
+    My focus was making the simulator usable for our team specifically:
+  </p>
+  <h3>Custom robot-model import</h3>
+  <p>
+    Bringing our own robot model into the sim so practice happens with our real geometry and behavior,
+    not a generic stand-in. This makes driver muscle memory and autonomous tuning actually transfer to
+    the physical bot.
+  </p>
+  <h3>Multiplayer testing</h3>
+  <p>
+    Exploring a shared session so a driver and a programmer can be in the same simulated field at once,
+    which is how real practice and strategy work happen &mdash; together, not in isolation.
+  </p>
+
+  <div class="callout">
+    <p>
+      <strong>Help me finish this page:</strong> tell me the specifics and I&rsquo;ll write them up &mdash;
+      which simulator/base you started from, what you built versus extended, the language/tools, and any
+      result (e.g. hours of driver practice logged, autonomous routines tested). I kept the claims here to
+      what&rsquo;s certain so nothing overstates your work.
+    </p>
+  </div>
+
+  <h2>See it</h2>
+  <figure>
+    <div class="imgslot imgslot--wide" data-need="sim-screenshot-large">
+      <span class="imgslot__tag">Photo needed</span>
+      <span class="imgslot__label">A screenshot (or short clip) of the simulator running with a robot model in the field</span>
+    </div>
+    <figcaption>Screenshot of the simulator &mdash; add yours here.</figcaption>
+  </figure>
+
+  <p style="margin-top:40px">
+    <a class="link" href="#" data-todo>View the code on GitHub &rarr;</a>
+  </p>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Zhihao David Cui</p>
+  <p class="footer__built"><a href="index.html">Home</a> &middot; <a href="#top">Back to top</a></p>
+</footer>
+
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

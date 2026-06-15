@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>David Cui — Robotics & Mechanical Engineering</title>
-<meta name="description" content="Zhihao (David) Cui — robotics programmer and aspiring mechanical engineer. FRC Team 5829 lead programmer and driver. Builder of shoot-on-the-move targeting, vision auto-alignment, and more." />
-
-<!-- Open Graph (for link previews when you share the site) -->
-<meta property="og:title" content="David Cui — Robotics & Mechanical Engineering" />
-<meta property="og:description" content="Robotics programmer and aspiring mechanical engineer. I build targeting systems, vision alignment, and autonomous control for competitive robotics." />
+<title>David Cui — Robotics, Social Impact, Violin</title>
+<meta name="description" content="Zhihao (David) Cui — robotics programmer and aspiring mechanical engineer. FRC Team 5829 lead programmer and driver, community builder, and violinist." />
+<meta property="og:title" content="David Cui — Robotics, Social Impact, Violin" />
+<meta property="og:description" content="Robotics programmer and aspiring mechanical engineer. I build targeting systems and simulators, run community initiatives, and play violin." />
 <meta property="og:type" content="website" />
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -20,15 +17,14 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ===== Nav ===== -->
 <header class="nav" id="top">
   <a class="nav__mark" href="#top" aria-label="David Cui, home">
     <span class="nav__mark-bracket">[</span>DC<span class="nav__mark-bracket">]</span>
   </a>
   <nav class="nav__links" aria-label="Primary">
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#activities">Activities</a>
+    <a href="#robotics">Robotics</a>
+    <a href="#impact">Impact</a>
+    <a href="#violin">Violin</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -38,22 +34,22 @@
   <!-- ===== Hero ===== -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__copy">
-      <p class="eyebrow">Robotics &middot; Mechanical Engineering</p>
+      <p class="eyebrow">Robotics &middot; Social impact &middot; Violin</p>
       <h1 id="hero-title">Zhihao <span>David</span> Cui</h1>
       <p class="hero__lede">
-        I program competitive robots and build the control systems that make them precise.
-        Lead programmer and driver for <strong>FRC Team 5829</strong>, where I wrote a
-        targeting system that scores <strong>over 90% while moving</strong> — on a robot with no turret.
+        I build control systems for competitive robots, run community initiatives that reach
+        people across the world, and play violin at the All-State level. Lead programmer and
+        driver for <strong>FRC Team 5829</strong>, where my targeting system scores
+        <strong>over 90% while moving</strong> &mdash; on a robot with no turret.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="#work">See the work</a>
+        <a class="btn btn--primary" href="#robotics">See the work</a>
         <a class="btn btn--ghost" href="#contact">Get in touch</a>
       </div>
     </div>
-
     <figure class="hero__sim" aria-labelledby="sim-cap">
       <canvas id="sotm" width="560" height="460" role="img"
-        aria-label="Live simulation of a shoot-on-the-move targeting system. A robot moves along a path while the algorithm continuously computes a compensated aim point that leads the goal based on the robot's velocity."></canvas>
+        aria-label="Live simulation of a shoot-on-the-move targeting system: a robot moves along a path while the algorithm computes a velocity-compensated aim point that leads the goal."></canvas>
       <figcaption id="sim-cap" class="hero__sim-cap">
         <span class="dot"></span> Live: shoot-on-the-move solver computing a velocity-compensated aim point
       </figcaption>
@@ -67,182 +63,189 @@
       <span class="telemetry__label">scoring rate on the move</span>
     </div>
     <div class="telemetry__item">
-      <span class="telemetry__num">#1 / #2</span>
-      <span class="telemetry__label">TEAMS Texas state / US national</span>
-    </div>
-    <div class="telemetry__item">
       <span class="telemetry__num">2026</span>
       <span class="telemetry__label">FRC World Championship qualifier</span>
     </div>
     <div class="telemetry__item">
       <span class="telemetry__num">10+</span>
-      <span class="telemetry__label">countries reached by Beyond the Blueprint</span>
+      <span class="telemetry__label">countries reached through outreach</span>
+    </div>
+    <div class="telemetry__item">
+      <span class="telemetry__num">3&times;</span>
+      <span class="telemetry__label">TPSMEA All-State violinist</span>
     </div>
   </section>
 
-  <!-- ===== Work ===== -->
-  <section class="work" id="work" aria-labelledby="work-title">
-    <div class="section-head">
-      <p class="eyebrow">Selected work</p>
-      <h2 id="work-title">What I&rsquo;ve built</h2>
+  <!-- ===== Pillar 1: Robotics ===== -->
+  <section class="pillar" id="robotics" aria-labelledby="rob-title">
+    <div class="pillar__head">
+      <div>
+        <p class="eyebrow">Pillar one</p>
+        <h2 id="rob-title">Robotics</h2>
+      </div>
+      <p class="pillar__intro">
+        Software, automation, and driving for FRC Team 5829. I write the control systems that make
+        the robot precise, and the tools that let us test before we touch hardware.
+      </p>
     </div>
 
-    <!-- Featured project: SOTM -->
-    <article class="project project--featured">
-      <div class="project__meta">
-        <span class="tag">Featured</span>
-        <span class="tag tag--muted">Java &middot; Vector math &middot; Control</span>
+    <!-- SOTM -->
+    <article class="rcard">
+      <div class="rcard__media">
+        <div class="imgslot" data-need="robot-action">
+          <span class="imgslot__tag">Photo needed</span>
+          <span class="imgslot__label">Robot shooting while moving &mdash; a match action shot or a frame from the demo video</span>
+        </div>
       </div>
-      <h3 class="project__title">Shoot-on-the-Move targeting</h3>
-      <p class="project__role">FRC 5829 &middot; design &amp; implementation</p>
-      <p class="project__body">
-        A turretless robot normally has to stop, square up, and shoot. I built a system that lets
-        ours score while driving. Robot velocity is decomposed into a translation vector that offsets
-        the aim point, and an interpolating lookup table — built from time-of-flight data I measured
-        across distances — feeds an iterative solver that converges on a compensated target. The flight
-        time depends on distance, but the compensated distance depends on flight time, so the two are
-        solved together by fixed-point iteration.
-      </p>
-      <div class="project__detail">
-        <pre><code><span class="c-kw">public</span> Pose2d <span class="c-fn">getDynamicHubLocation</span>() {
-  Translation2d hub   = hubPose.getTranslation();
-  Translation2d vel   = getFieldVelocity();      <span class="c-cm">// robot velocity</span>
-  Translation2d aim   = hub;
-
-  <span class="c-kw">for</span> (<span class="c-kw">int</span> i = <span class="c-n">0</span>; i &lt; <span class="c-n">15</span>; i++) {     <span class="c-cm">// converges in ~2–3</span>
-    <span class="c-kw">double</span> dist = aim.minus(robotPos).getNorm();
-    <span class="c-kw">double</span> tof  = TOF.get(dist);          <span class="c-cm">// measured lookup table</span>
-    aim = hub.minus(vel.times(tof));      <span class="c-cm">// lead the goal</span>
-  }
-  <span class="c-kw">return</span> <span class="c-kw">new</span> Pose2d(aim, <span class="c-kw">new</span> Rotation2d());
-}</code></pre>
-      </div>
-      <p class="project__body project__body--note">
-        It is not perfect: sudden direction changes still cause misses, because the model assumes
-        constant velocity over the flight time. That is a modeling limit, not a solver one, so I am
-        moving toward Newton&rsquo;s method and accounting for command latency next.
-      </p>
-      <div class="project__links">
-        <!-- TODO: replace # with your real GitHub repo + video links -->
-        <a class="link" href="#" data-todo>Code on GitHub &rarr;</a>
-        <a class="link" href="sotm.html">Full writeup &rarr;</a>
+      <div class="rcard__body">
+        <div class="project__meta">
+          <span class="tag">Featured</span>
+          <span class="tag tag--muted">Java &middot; Vector math &middot; Control</span>
+        </div>
+        <h3 class="project__title">Shoot-on-the-Move</h3>
+        <p class="project__role">Targeting system &middot; design &amp; implementation</p>
+        <p class="project__body">
+          A turretless robot normally stops to line up each shot. I built a system that scores while
+          driving: robot velocity offsets the aim point, an iterative solver leads the goal using
+          flight-time data I measured, and the result is a 90%+ scoring rate on the move.
+        </p>
+        <div class="project__links" style="margin-top:auto">
+          <a class="link" href="sotm.html">Full writeup &amp; diagrams &rarr;</a>
+          <a class="link" href="#" data-todo>Code &rarr;</a>
+        </div>
       </div>
     </article>
 
-    <!-- Project grid -->
-    <div class="project-grid">
-
-      <article class="project">
-        <div class="project__meta"><span class="tag tag--muted">Computer vision &middot; PID</span></div>
-        <h3 class="project__title">Vision auto-alignment</h3>
-        <p class="project__role">FRC 5829</p>
+    <!-- Unity sim -->
+    <article class="rcard rcard--rev">
+      <div class="rcard__media">
+        <div class="imgslot" data-need="sim-screenshot">
+          <span class="imgslot__tag">Photo needed</span>
+          <span class="imgslot__label">Screenshot of the Unity robotics simulator &mdash; ideally with a robot model loaded in the field</span>
+        </div>
+      </div>
+      <div class="rcard__body">
+        <div class="project__meta">
+          <span class="tag tag--muted">Unity &middot; Simulation &middot; Tooling</span>
+        </div>
+        <h3 class="project__title">Unity Robotics Simulator</h3>
+        <p class="project__role">Simulation &amp; driver-practice tooling</p>
         <p class="project__body">
-          Integrated Limelight vision data with PID controllers so the robot squares to the goal
-          on its own, cutting alignment time out of every scoring cycle. Tuned the loops to settle
-          fast without overshoot.
+          A simulator for rehearsing autonomous routines and strategy before the real robot exists.
+          I worked on custom robot-model import and multiplayer testing, so drivers and programmers
+          can practice and iterate without competing for time on the physical bot.
         </p>
-        <div class="project__links">
+        <div class="project__links" style="margin-top:auto">
+          <a class="link" href="sim.html">Full writeup &amp; diagram &rarr;</a>
           <a class="link" href="#" data-todo>Code &rarr;</a>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <article class="project">
-        <div class="project__meta"><span class="tag tag--muted">Tooling &middot; Simulation</span></div>
-        <h3 class="project__title">MoSimulator work</h3>
-        <p class="project__role">FRC simulation tooling</p>
-        <p class="project__body">
-          Extended an FRC simulator with custom robot model import and explored multiplayer testing,
-          so drivers and programmers can rehearse autonomous routines and strategy before touching
-          real hardware.
-        </p>
-        <div class="project__links">
-          <a class="link" href="#" data-todo>Details &rarr;</a>
+    <!-- Auto-alignment (compact) -->
+    <div class="rmini">
+      <div class="project__meta"><span class="tag tag--muted">Computer vision &middot; PID</span></div>
+      <h3 class="project__title" style="font-size:22px">Vision auto-alignment</h3>
+      <p class="project__body" style="margin-bottom:0">
+        Integrated Limelight vision data with PID controllers so the robot squares to the goal on its
+        own, cutting alignment time out of every scoring cycle. Tuned the loops to settle fast without
+        overshoot.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Pillar 2: Social impact ===== -->
+  <section class="pillar pillar--divider" id="impact" aria-labelledby="imp-title">
+    <div class="pillar__head">
+      <div>
+        <p class="eyebrow">Pillar two</p>
+        <h2 id="imp-title">Social impact</h2>
+      </div>
+      <p class="pillar__intro">
+        Using engineering, music, and language to lower barriers for people &mdash; from high
+        schoolers exploring careers to women learning English an ocean away.
+      </p>
+    </div>
+
+    <div class="impact-grid">
+
+      <article class="impact-card">
+        <div class="imgslot" data-need="btb-cover">
+          <span class="imgslot__tag">Photo needed</span>
+          <span class="imgslot__label">Beyond the Blueprint cover art or an episode screenshot</span>
+        </div>
+        <div class="impact-card__body">
+          <p class="impact-card__role">Co-founder</p>
+          <h3>Beyond the Blueprint</h3>
+          <p>
+            A student-led podcast that explains engineering and technology careers to high schoolers.
+            I co-founded it, published five in-depth interviews with working engineers, and grew the
+            audience across 10+ countries on three continents.
+          </p>
         </div>
       </article>
 
-      <article class="project">
-        <div class="project__meta"><span class="tag tag--muted">Founder &middot; Media</span></div>
-        <h3 class="project__title">Beyond the Blueprint</h3>
-        <p class="project__role">Co-founder</p>
-        <p class="project__body">
-          A student-led podcast that explains engineering and technology careers to high schoolers.
-          I co-founded it, published five in-depth interviews with working engineers, and grew the
-          audience across 10+ countries on three continents.
-        </p>
-        <div class="project__links">
-          <a class="link" href="#" data-todo>Listen &rarr;</a>
+      <article class="impact-card">
+        <div class="imgslot" data-need="sma-concert">
+          <span class="imgslot__tag">Photo needed</span>
+          <span class="imgslot__label">A photo from one of the concerts for elderly residents</span>
+        </div>
+        <div class="impact-card__body">
+          <p class="impact-card__role">Organizer &middot; Violinist</p>
+          <h3>Spread the Music Association</h3>
+          <p>
+            Organized concerts that bring live music to elderly residents at local community centers,
+            coordinating musicians and performing violin to make the events happen.
+          </p>
+        </div>
+      </article>
+
+      <article class="impact-card">
+        <div class="imgslot" data-need="freefluency">
+          <span class="imgslot__tag">Photo needed</span>
+          <span class="imgslot__label">Free Fluency logo or a neutral teaching image (avoid identifiable faces of students)</span>
+        </div>
+        <div class="impact-card__body">
+          <p class="impact-card__role">Volunteer teacher</p>
+          <h3>Free Fluency</h3>
+          <p>
+            Teach English over Zoom to underserved women in Afghanistan who have few other ways to
+            learn, meeting regularly to build their reading, speaking, and confidence.
+          </p>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- ===== About ===== -->
-  <section class="about" id="about" aria-labelledby="about-title">
-    <div class="section-head">
-      <p class="eyebrow">About</p>
-      <h2 id="about-title">Two languages, two instruments, one way of thinking</h2>
-    </div>
-    <div class="about__cols">
-      <p>
-        I moved from China to Houston in fourth grade and grew up bilingual in English and Mandarin.
-        I think the most interesting engineering sits at the seams between fields, which is probably
-        why I am drawn to robotics: it is mechanical, electrical, and software all solving one problem
-        at once.
-      </p>
-      <p>
-        Outside of code I play violin at the All-State level with the Houston Youth Symphony, and I
-        have come to see a control loop and a bowed note as the same thing — both are about hitting a
-        precise target and correcting in real time. I want to study mechanical and robotics engineering
-        and keep building systems that move well in the real world.
+  <!-- ===== Pillar 3: Violin ===== -->
+  <section class="pillar pillar--divider" id="violin" aria-labelledby="vln-title">
+    <div class="pillar__head">
+      <div>
+        <p class="eyebrow">Pillar three</p>
+        <h2 id="vln-title">Violin</h2>
+      </div>
+      <p class="pillar__intro">
+        A decade at the instrument, now performing at the second-highest level of the Houston Youth
+        Symphony. The same instinct as a control loop: hit the target, correct in real time.
       </p>
     </div>
-    <ul class="skills" aria-label="Skills">
-      <li>Java</li>
-      <li>PID control</li>
-      <li>Autonomous pathing</li>
-      <li>Computer vision (Limelight)</li>
-      <li>CAD</li>
-      <li>Vector math</li>
-      <li>Systems integration</li>
-      <li>English &middot; Mandarin</li>
-    </ul>
-  </section>
 
-  <!-- ===== Activities ===== -->
-  <section class="activities" id="activities" aria-labelledby="act-title">
-    <div class="section-head">
-      <p class="eyebrow">Leadership &amp; service</p>
-      <h2 id="act-title">Where I show up</h2>
-    </div>
-    <div class="rows">
-      <div class="row">
-        <div class="row__left">
-          <h3>FRC Team 5829 — Awtybots</h3>
-          <p>Lead Programmer, Driver, former President</p>
+    <div class="violin">
+      <div class="violin__media">
+        <div class="imgslot imgslot--tall" data-need="violin-performance">
+          <span class="imgslot__tag">Photo needed</span>
+          <span class="imgslot__label">A performance photo of you playing violin</span>
         </div>
-        <p class="row__right">Software, automation, and drive. Qualified the team for the 2026 World Championship and mentored five rookie programmers.</p>
       </div>
-      <div class="row">
-        <div class="row__left">
-          <h3>STEM clubs</h3>
-          <p>VP, Engineering &amp; Physics &middot; VP, Math</p>
-        </div>
-        <p class="row__right">Run school-wide STEM initiatives and tutor middle schoolers in advanced math.</p>
-      </div>
-      <div class="row">
-        <div class="row__left">
-          <h3>Houston Youth Symphony</h3>
-          <p>Violinist &middot; 3&times; TPSMEA All-State</p>
-        </div>
-        <p class="row__right">Perform at the second-highest level of the symphony; led the school orchestra as president.</p>
-      </div>
-      <div class="row">
-        <div class="row__left">
-          <h3>Service</h3>
-          <p>Free Fluency &middot; Project TRANSLATE &middot; Houston Food Bank &middot; Music for Service</p>
-        </div>
-        <p class="row__right">Teach English to women in Afghanistan, translate robotics docs for international teams, and play concerts for elderly residents.</p>
+      <div>
+        <ul class="violin__list">
+          <li><span class="yr">3&times;</span> TPSMEA All-State Musician</li>
+          <li><span class="yr">2&times;</span> TMEA Region 27 Musician</li>
+          <li><span class="yr">HYS</span> Houston Youth Symphony &mdash; second-highest level</li>
+          <li><span class="yr">Lead</span> Awty Orchestra President (Grade 10)</li>
+          <li><span class="yr">10+ yr</span> Performing and studying violin</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -253,11 +256,8 @@
       <p class="eyebrow">Contact</p>
       <h2 id="contact-title">Let&rsquo;s talk</h2>
     </div>
-    <p class="contact__lede">
-      Reach out about robotics, engineering, or Beyond the Blueprint.
-    </p>
+    <p class="contact__lede">Reach out about robotics, engineering, music, or any of the work here.</p>
     <div class="contact__links">
-      <!-- TODO: confirm/replace these -->
       <a class="contact__link" href="mailto:27cuiz@awty.org">
         <span class="contact__k">Email</span>
         <span class="contact__v">27cuiz@awty.org</span>
@@ -266,9 +266,9 @@
         <span class="contact__k">LinkedIn</span>
         <span class="contact__v">david-cui &rarr;</span>
       </a>
-      <a class="contact__link" href="#" data-todo target="_blank" rel="noopener">
+      <a class="contact__link" href="https://github.com/DavidCui5829" target="_blank" rel="noopener">
         <span class="contact__k">GitHub</span>
-        <span class="contact__v">add your handle &rarr;</span>
+        <span class="contact__v">DavidCui5829 &rarr;</span>
       </a>
     </div>
   </section>
