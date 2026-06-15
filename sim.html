@@ -29,11 +29,12 @@
 <main id="main" class="page">
   <a class="back" href="index.html#robotics">&larr; Back to robotics</a>
 
-  <p class="page__sub">FRC Team 5829 &middot; Unity &middot; simulation tooling</p>
+  <p class="page__sub">FRC Team 5829 &middot; CloSim &middot; Unity 2023.2.22f1</p>
   <h1>Unity Robotics Simulator</h1>
   <p class="page__lede">
-    A simulator for rehearsing autonomous routines and strategy <strong>before the real robot
-    exists</strong>, so we stop competing for time on one physical bot.
+    I brought our team's robot into <strong>CloSim</strong>, a Unity-based FRC simulator, so we can
+    rehearse autonomous routines and strategy <strong>before the real robot exists</strong> and stop
+    competing for time on one physical bot.
   </p>
 
   <div class="pill-row">
@@ -59,41 +60,42 @@
 
   <h2>What I worked on</h2>
   <p>
-    My focus was making the simulator usable for our team specifically:
+    My focus was making the simulator match our real robot, so practice in the sim actually transfers
+    to the field.
   </p>
-  <h3>Custom robot-model import</h3>
+
+  <figure>
+    <img src="images/unity-editor.jpg" alt="The CloSim Unity editor showing the 5829 robot model in the scene, with the Build Frame script (frame size, robot weight, gear ratio, drivetrain) and the Auto Aim targeting script in the inspector." />
+    <figcaption>Our 5829 robot model in CloSim, with the build-frame and auto-aim settings in the inspector.</figcaption>
+  </figure>
+
+  <h3>Robot-model import &amp; build frame</h3>
   <p>
-    Bringing our own robot model into the sim so practice happens with our real geometry and behavior,
-    not a generic stand-in. This makes driver muscle memory and autonomous tuning actually transfer to
-    the physical bot.
+    I imported our robot (5829Goldfire) into the sim and configured its build frame &mdash; frame size,
+    weight, gear ratio, and drivetrain &mdash; so its geometry and movement behave like the real thing.
+    That makes driver muscle memory and autonomous tuning actually transfer to the physical bot.
   </p>
-  <h3>Multiplayer testing</h3>
+  <h3>Auto-aim &amp; multiplayer testing</h3>
   <p>
-    Exploring a shared session so a driver and a programmer can be in the same simulated field at once,
-    which is how real practice and strategy work happen &mdash; together, not in isolation.
+    I worked with the auto-aim targeting inside the sim and explored a shared multiplayer session, so a
+    driver and a programmer can be in the same simulated field at once &mdash; which is how real
+    practice and strategy work actually happen, together rather than in isolation.
   </p>
 
   <div class="callout">
     <p>
-      <strong>Help me finish this page:</strong> tell me the specifics and I&rsquo;ll write them up &mdash;
-      which simulator/base you started from, what you built versus extended, the language/tools, and any
-      result (e.g. hours of driver practice logged, autonomous routines tested). I kept the claims here to
-      what&rsquo;s certain so nothing overstates your work.
+      Want to make this even stronger? If you tell me exactly which parts you wrote versus configured
+      &mdash; for example whether you authored the auto-aim or build-frame scripts &mdash; I can phrase
+      it precisely so it credits your work accurately.
     </p>
   </div>
 
-  <h2>See it</h2>
+  <h2>See it run</h2>
   <figure>
-    <div class="imgslot imgslot--wide" data-need="sim-screenshot-large">
-      <span class="imgslot__tag">Photo needed</span>
-      <span class="imgslot__label">A screenshot (or short clip) of the simulator running with a robot model in the field</span>
-    </div>
-    <figcaption>Screenshot of the simulator &mdash; add yours here.</figcaption>
+    <img src="images/unity-sim.jpg" alt="CloSim running a match: the 5829 robot on the field intaking and scoring yellow game pieces, with a live alliance scoreboard." />
+    <figcaption>A match running in CloSim with our robot on the field.</figcaption>
   </figure>
 
-  <p style="margin-top:40px">
-    <a class="link" href="#" data-todo>View the code on GitHub &rarr;</a>
-  </p>
 </main>
 
 <footer class="footer">
