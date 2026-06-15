@@ -10,7 +10,7 @@
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -33,25 +33,31 @@
 
   <!-- ===== Hero ===== -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero__copy">
-      <p class="eyebrow">Robotics &middot; Social impact &middot; Violin</p>
-      <h1 id="hero-title">Zhihao <span>David</span> Cui</h1>
-      <p class="hero__lede">
-        I build control systems for competitive robots, run community initiatives that reach
-        people across the world, and play violin at the All-State level. Lead programmer and
-        driver for <strong>FRC Team 5829</strong>, where my targeting system scores
-        <strong>over 90% while moving</strong> &mdash; on a robot with no turret.
-      </p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="#robotics">See the work</a>
-        <a class="btn btn--ghost" href="#contact">Get in touch</a>
-      </div>
+    <p class="eyebrow">Robotics &middot; Social impact &middot; Violin</p>
+    <h1 id="hero-title">David Cui</h1>
+    <p class="hero__identity">Robotics programmer<span>/</span>Aspiring mechanical engineer<span>/</span>Violinist</p>
+    <p class="hero__lede">
+      I build control systems for competitive robots, run community projects that reach people
+      around the world, and play violin. Lead programmer and driver for FRC Team 5829, where my
+      targeting system scores over 90% of shots while the robot is moving.
+    </p>
+    <div class="hero__social">
+      <a href="https://github.com/DavidCui5829" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.55-1.14-4.55-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.05a9.36 9.36 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.32 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/david-cui-1b2bb72b3" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.5H5.67V18h2.67V9.5zM7 6a1.55 1.55 0 1 0 0 3.1A1.55 1.55 0 0 0 7 6zm11 5.96c0-2.32-1.5-3.21-2.96-3.21-1.09 0-1.83.6-2.14 1.17h-.04V9.5h-2.56V18h2.67v-4.2c0-1.11.21-2.18 1.58-2.18 1.35 0 1.37 1.26 1.37 2.25V18H18v-6.04z"/></svg>
+      </a>
+      <a href="mailto:27cuiz@awty.org" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </a>
     </div>
+
     <figure class="hero__sim" aria-labelledby="sim-cap">
       <canvas id="sotm" width="560" height="460" role="img"
-        aria-label="Live simulation of a shoot-on-the-move targeting system: a robot moves along a path while the algorithm computes a velocity-compensated aim point that leads the goal."></canvas>
+        aria-label="A live demo of a shoot-on-the-move targeting system: a robot moves along a path while the algorithm computes an aim point that leads the goal based on the robot's velocity."></canvas>
       <figcaption id="sim-cap" class="hero__sim-cap">
-        <span class="dot"></span> Live: shoot-on-the-move solver computing a velocity-compensated aim point
+        <span class="dot"></span> A live demo of my robot's targeting system, aiming while moving
       </figcaption>
     </figure>
   </section>
