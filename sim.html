@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Unity Robotics Simulator — David Cui</title>
 <meta name="description" content="A Unity-based simulator for rehearsing FRC autonomous routines and strategy before the real robot exists." />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -75,20 +77,19 @@
     weight, gear ratio, and drivetrain &mdash; so its geometry and movement behave like the real thing.
     That makes driver muscle memory and autonomous tuning actually transfer to the physical bot.
   </p>
-  <h3>Auto-aim &amp; multiplayer testing</h3>
+  <h3>Custom auto-aim targeting</h3>
   <p>
-    I worked with the auto-aim targeting inside the sim and explored a shared multiplayer session, so a
-    driver and a programmer can be in the same simulated field at once &mdash; which is how real
-    practice and strategy work actually happen, together rather than in isolation.
+    I wrote the auto-aim targeting script for the sim, implementing the same velocity-compensated
+    logic from my <a href="sotm.html">shoot-on-the-move system</a> so the simulated robot aims
+    the way the real one does. This meant drivers and programmers could practice with realistic
+    shooting behavior before touching the physical robot.
   </p>
-
-  <div class="callout">
-    <p>
-      Want to make this even stronger? If you tell me exactly which parts you wrote versus configured
-      &mdash; for example whether you authored the auto-aim or build-frame scripts &mdash; I can phrase
-      it precisely so it credits your work accurately.
-    </p>
-  </div>
+  <h3>Multiplayer testing</h3>
+  <p>
+    I set up shared multiplayer sessions so a driver and a programmer can be in the same simulated
+    field at once &mdash; which is how real practice and strategy work actually happen, together
+    rather than in isolation.
+  </p>
 
   <h2>See it run</h2>
   <figure>
