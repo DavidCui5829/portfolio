@@ -40,9 +40,9 @@
     <h1 id="hero-title">David Cui</h1>
     <p class="hero__identity">Robotics programmer<span>/</span>Aspiring mechanical engineer<span>/</span>Violinist</p>
     <p class="hero__lede">
-      I build control systems for competitive robots, run community projects that reach people
-      around the world, and play violin. Lead programmer and driver for FRC Team 5829, where my
-      targeting system scores over 90% of shots while the robot is moving.
+      Lead programmer and driver for FRC Team 5829. I write the control software that makes our
+      robot precise, build projects that bring other students closer to engineering, and have
+      played violin for a decade.
     </p>
     <div class="hero__social">
       <a href="https://github.com/DavidCui5829" target="_blank" rel="noopener" aria-label="GitHub">
@@ -55,33 +55,27 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
       </a>
     </div>
-
-    <figure class="hero__sim" aria-labelledby="sim-cap">
-      <canvas id="sotm" width="560" height="460" role="img"
-        aria-label="A live demo of a shoot-on-the-move targeting system: a robot moves along a path while the algorithm computes an aim point that leads the goal based on the robot's velocity."></canvas>
-      <figcaption id="sim-cap" class="hero__sim-cap">
-        <span class="dot"></span> A live demo of my robot's targeting system, aiming while moving
-      </figcaption>
-    </figure>
   </section>
 
-  <!-- ===== Telemetry bar ===== -->
-  <section class="telemetry" aria-label="Highlights">
-    <div class="telemetry__item">
-      <span class="telemetry__num">90%+</span>
-      <span class="telemetry__label">scoring rate on the move</span>
-    </div>
-    <div class="telemetry__item">
-      <span class="telemetry__num">2026</span>
-      <span class="telemetry__label">FRC World Championship qualifier</span>
-    </div>
-    <div class="telemetry__item">
-      <span class="telemetry__num">10+</span>
-      <span class="telemetry__label">countries reached through outreach</span>
-    </div>
-    <div class="telemetry__item">
-      <span class="telemetry__num">3&times;</span>
-      <span class="telemetry__label">TPSMEA All-State violinist</span>
+  <!-- ===== Highlights bar ===== -->
+  <section class="telemetry-wrap" aria-label="Highlights">
+    <div class="telemetry">
+      <div class="telemetry__item">
+        <span class="telemetry__num">Lead</span>
+        <span class="telemetry__label">programmer &amp; driver, FRC Team 5829</span>
+      </div>
+      <div class="telemetry__item">
+        <span class="telemetry__num">2026</span>
+        <span class="telemetry__label">FRC World Championship qualifier</span>
+      </div>
+      <div class="telemetry__item">
+        <span class="telemetry__num">10+</span>
+        <span class="telemetry__label">countries reached through outreach</span>
+      </div>
+      <div class="telemetry__item">
+        <span class="telemetry__num">3&times;</span>
+        <span class="telemetry__label">TPSMEA All-State violinist</span>
+      </div>
     </div>
   </section>
 
@@ -111,9 +105,9 @@
         <h3 class="project__title">Shoot-on-the-Move</h3>
         <p class="project__role">Targeting system &middot; design &amp; implementation</p>
         <p class="project__body">
-          A turretless robot normally stops to line up each shot. I built a system that scores while
-          driving: robot velocity offsets the aim point, an iterative solver leads the goal using
-          flight-time data I measured, and the result is a 90%+ scoring rate on the move.
+          A turretless robot normally has to stop and square up for every shot. I built a targeting
+          system that scores while driving: the robot's velocity offsets the aim point, and an
+          iterative solver leads the goal using flight-time data I measured on the field.
         </p>
         <div class="project__links" style="margin-top:auto">
           <a class="link" href="sotm.html">Full writeup &amp; diagrams &rarr;</a>
@@ -165,24 +159,25 @@
         <h2 id="imp-title">Social impact</h2>
       </div>
       <p class="pillar__intro">
-        Using engineering, music, and language to lower barriers for people &mdash; from high
-        schoolers exploring careers to women learning English an ocean away.
+        Using engineering, music, and language to lower barriers for other people &mdash; from high
+        schoolers deciding what to study to women learning English an ocean away.
       </p>
     </div>
 
     <div class="impact-grid">
 
       <article class="impact-card">
-        <img class="imgfill" src="images/btb-cover.png" alt="Beyond the Blueprint podcast cover art: the show title alongside a microphone illustration on a dark blue background." loading="lazy" />
+        <img class="imgfill imgfill--logo" src="images/btb-cover.jpg" alt="Beyond the Blueprint cover art: the show title alongside a microphone illustration on a dark blue background." loading="lazy" />
         <div class="impact-card__body">
           <p class="impact-card__role">Co-founder</p>
           <h3>Beyond the Blueprint</h3>
           <p>
-            A student-led podcast that explains engineering and technology careers to high schoolers.
-            I co-founded it, published five in-depth interviews with working engineers, and grew the
-            audience across 10+ countries on three continents.
+            A student-run interview series showing high schoolers what engineering careers actually
+            look like day to day. I co-founded it and helped publish six interviews with engineers at
+            NASA Johnson Space Center, Google, ISRO, and Honeywell, reaching viewers in 10+ countries
+            on three continents.
           </p>
-          <p style="margin-top:14px"><a class="link" href="https://sites.google.com/awty.org/beyond-the-blueprint/home" target="_blank" rel="noopener">Visit the site &rarr;</a></p>
+          <p style="margin-top:14px"><a class="link" href="https://thebtbpodcast.com/" target="_blank" rel="noopener">thebtbpodcast.com &rarr;</a></p>
         </div>
       </article>
 
@@ -199,14 +194,14 @@
       </article>
 
       <article class="impact-card">
-        <img class="imgfill" src="images/freefluency-logo.jpg" alt="Free Fluency Academy logo: a smiling globe inside a circular badge with the tagline English Made Easy." loading="lazy" />
+        <img class="imgfill imgfill--logo" src="images/freefluency-logo.jpg" alt="Free Fluency Academy logo: a smiling globe inside a circular badge with the tagline English Made Easy." loading="lazy" />
         <div class="impact-card__body">
           <p class="impact-card__role">Curriculum creator &middot; Volunteer teacher</p>
           <h3>Free Fluency</h3>
           <p>
-            Created Mandarin lesson materials for the platform and teach English over Zoom to
-            underserved women in Afghanistan, meeting regularly to build their reading, speaking,
-            and confidence.
+            I teach English over Zoom to women in Afghanistan with limited access to schooling,
+            meeting regularly to work on their reading, speaking, and confidence. I also wrote the
+            platform's Mandarin lesson materials.
           </p>
         </div>
       </article>
@@ -223,7 +218,7 @@
       </div>
       <p class="pillar__intro">
         A decade at the instrument, now performing at the second-highest level of the Houston Youth
-        Symphony. The same instinct as a control loop: hit the target, correct in real time.
+        Symphony and leading my school's orchestra.
       </p>
     </div>
 

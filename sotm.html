@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shoot-on-the-Move — David Cui</title>
-<meta name="description" content="How I built a velocity-compensated targeting system that lets a turretless FRC robot score over 90% of shots while driving." />
+<meta name="description" content="How I built a velocity-compensated targeting system that lets a turretless FRC robot score while driving — the vector math, the iterative solver, and where it still fails." />
 <link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,8 +34,8 @@
   <p class="page__sub">FRC Team 5829 &middot; 2026 season &middot; Java</p>
   <h1>Shoot-on-the-Move</h1>
   <p class="page__lede">
-    A velocity-compensated targeting system that lets our turretless robot score
-    <strong>over 90% of shots while driving</strong>, instead of stopping to line up each one.
+    A velocity-compensated targeting system that lets our turretless robot
+    <strong>score while driving</strong>, instead of stopping to line up each shot.
   </p>
 
   <div class="pill-row">
@@ -118,7 +118,10 @@
   </p>
 
   <h2>Seeing it work</h2>
-  <p>Two test runs, one at Katy and one at Awty:</p>
+  <p>
+    Two test runs, one at Katy and one at Awty. The robot connected on most of its moving shots in
+    both sessions, but the pattern in the misses turned out to be the more useful result.
+  </p>
   <div class="videos">
     <a class="video-card" href="https://youtu.be/rnhD6OzlBLg" target="_blank" rel="noopener">
       <span class="vk">Demo &middot; tested at Katy</span>

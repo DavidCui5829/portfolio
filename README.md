@@ -5,9 +5,12 @@ deploys anywhere with zero configuration and a custom domain is just a DNS chang
 
 ```
 portfolio/
-├── index.html      # all page content
-├── styles.css      # styling
-├── main.js         # live SOTM canvas sim + scroll reveals
+├── index.html      # home: robotics, social impact, violin
+├── sotm.html       # writeup: shoot-on-the-move targeting system
+├── sim.html        # writeup: Unity robotics simulator
+├── styles.css      # styling (shared by all pages)
+├── main.js         # scroll reveals + footer year
+├── images/         # photos and logos
 └── README.md
 ```
 
@@ -64,12 +67,11 @@ This also works with no changes:
 
 A custom domain can be added here too, under the same Pages settings.
 
-## Before you ship — fill these in
+## Editing notes
 
-Search the project for `data-todo` and `TODO`. You need to:
-
-- Add your **GitHub** profile/repo links (project cards + contact section).
-- Add **demo video** links for the SOTM project (upload the `.mov` files to YouTube
-  and link them — raw `.mov` filenames won't work online).
-- Add a **full writeup** link (your SOTM document, e.g. a hosted PDF or a project page).
-- Confirm your **email** and **LinkedIn** in the contact section are correct.
+- **Keep claims checkable.** Every number on the site should be one you could back up if
+  someone asked. Prefer describing what you built and what you learned over headline stats.
+- **Images:** anything over ~300 KB should be resized before committing. Square logos use
+  `class="imgfill imgfill--logo"` so they aren't cropped; photos use plain `imgfill`.
+- **New writeup page:** copy `sim.html`, change the `<main class="page">` content. It picks up
+  the shared nav, footer, and styles automatically.
