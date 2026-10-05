@@ -12,7 +12,7 @@ portfolio/
 ├── sotm-diagram.svg   # vector diagram used on sotm.html
 ├── sim-diagram.svg    # loop diagram used on sim.html
 ├── *-diagram-tall.svg # narrow versions of both diagrams, shown on phones
-├── images/            # photos, screenshots and logos (all JPEG, each under 120 KB)
+├── images/            # photos, screenshots and logos (all JPEG, each under 150 KB)
 └── README.md
 ```
 
