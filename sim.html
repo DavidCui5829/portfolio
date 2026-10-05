@@ -3,110 +3,106 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Unity Robotics Simulator — David Cui</title>
-<meta name="description" content="A Unity-based simulator for rehearsing FRC autonomous routines and strategy before the real robot exists." />
+<title>Robot simulator | David Cui</title>
+<meta name="description" content="How I brought our FRC robot into CloSim, a Unity-based simulator, so drivers and programmers could practice before the real robot was finished." />
+<link rel="canonical" href="https://dczhportfolio.vercel.app/sim.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dczhportfolio.vercel.app/sim.html" />
+<meta property="og:title" content="Robot simulator, by David Cui" />
+<meta property="og:description" content="Bringing an FRC robot into a Unity simulator so drivers and programmers can practice before the real robot is finished." />
+<meta property="og:image" content="https://dczhportfolio.vercel.app/og-icon.png" />
+<meta name="theme-color" content="#f3f5ef" />
 <link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<!-- scroll anchor: must NOT live on the sticky header, or "back to top" is a no-op -->
-<div id="top"></div>
-
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="nav">
-  <a class="nav__mark" href="index.html" aria-label="David Cui, home">
-    <span class="nav__mark-bracket">[</span>DC<span class="nav__mark-bracket">]</span>
-  </a>
-  <nav class="nav__links" aria-label="Primary">
-    <a href="index.html#robotics">Robotics</a>
-    <a href="index.html#impact">Impact</a>
-    <a href="index.html#violin">Violin</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="wordmark" href="index.html">David Cui</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="index.html#engineering">Engineering</a>
+      <a href="index.html#research">Research</a>
+      <a href="index.html#community">Community</a>
+      <a href="index.html#violin">Violin</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main id="main" class="page">
-  <a class="back" href="index.html#robotics">&larr; Back to robotics</a>
+  <a class="page__back" href="index.html#sim">Back to engineering</a>
 
-  <p class="page__sub">FRC Team 5829 &middot; CloSim &middot; Unity 2023.2.22f1</p>
-  <h1>Unity Robotics Simulator</h1>
+  <p class="page__meta">FRC Team 5829, CloSim, Unity 2023.2.22f1</p>
+  <h1>Robot simulator</h1>
   <p class="page__lede">
-    I brought our team's robot into <strong>CloSim</strong>, a Unity-based FRC simulator, so we can
-    rehearse autonomous routines and strategy <strong>before the real robot exists</strong> and stop
-    competing for time on one physical bot.
+    I brought our team&rsquo;s robot into <strong>CloSim</strong>, a Unity-based FRC simulator, so we
+    could rehearse autonomous routines and practice shooting <strong>before the real robot was
+    finished</strong>, instead of competing for time on one physical robot.
   </p>
-
-  <div class="pill-row">
-    <span class="tag">Unity</span>
-    <span class="tag tag--muted">Robot model import</span>
-    <span class="tag tag--muted">Multiplayer</span>
-    <span class="tag tag--muted">Driver practice</span>
-  </div>
 
   <h2>Why it exists</h2>
   <p>
-    On an FRC team, the physical robot is the bottleneck. There is one of it, it is often half
-    disassembled, and everyone &mdash; drivers, programmers, strategists &mdash; needs time on it.
-    A simulator removes that bottleneck. If the field, the robot, and the controls live in software,
-    people can practice and iterate in parallel, and a bad autonomous routine fails in the sim instead
-    of breaking real hardware.
+    On an FRC team, the physical robot is the bottleneck. There is one of it, it is often half taken
+    apart, and drivers, programmers and strategists all need time on it. A simulator removes that
+    bottleneck. If the field, the robot and the controls live in software, people can practice in
+    parallel, and a bad autonomous routine fails in the sim instead of breaking real hardware.
   </p>
 
   <figure>
-    <img src="sim-diagram.svg" alt="Diagram of the simulator loop: a custom robot model is imported into Unity physics, which feeds simulated sensors to the same control code the real robot runs; the session is shared in multiplayer for driver and programmer practice, and what is learned feeds back into the control code before deploying to the real robot." />
-    <figcaption>The sim closes the same loop as the real robot: sensors in, commands out &mdash; just in software.</figcaption>
+    <picture class="diagram">
+      <source media="(max-width: 700px)" srcset="sim-diagram-tall.svg" width="380" height="560" />
+      <img src="sim-diagram.svg" width="760" height="360" alt="Diagram of the simulator loop. A custom robot model is imported into Unity physics, which feeds simulated sensors to the same control code the real robot runs. Drivers and programmers practice together in a shared session, and what they learn feeds back into the control code before it goes on the real robot." />
+    </picture>
+    <figcaption>The sim closes the same loop as the real robot, sensors in and commands out, just in software.</figcaption>
   </figure>
 
   <h2>What I worked on</h2>
   <p>
-    My focus was making the simulator match our real robot, so practice in the sim actually transfers
-    to the field.
+    My focus was making the simulator match our real robot, so practice in the sim carries over to the
+    field.
   </p>
 
   <figure>
-    <img src="images/unity-editor.jpg" alt="The CloSim Unity editor showing the 5829 robot model in the scene, with the Build Frame script (frame size, robot weight, gear ratio, drivetrain) and the Auto Aim targeting script in the inspector." />
-    <figcaption>Our 5829 robot model in CloSim, with the build-frame and auto-aim settings in the inspector.</figcaption>
+    <img src="images/unity-editor.jpg" width="1200" height="718" loading="lazy" alt="The CloSim Unity editor showing the Team 5829 robot model, with the Build Frame settings (frame size, robot weight, gear ratio, drivetrain) and the Auto Aim script in the inspector." />
+    <figcaption>Our robot model in CloSim, with the build-frame and auto-aim settings in the inspector.</figcaption>
   </figure>
 
-  <h3>Robot-model import &amp; build frame</h3>
+  <h3>Robot model and build frame</h3>
   <p>
-    I imported our robot (5829Goldfire) into the sim and configured its build frame &mdash; frame size,
-    weight, gear ratio, and drivetrain &mdash; so its geometry and movement behave like the real thing.
-    That makes driver muscle memory and autonomous tuning actually transfer to the physical bot.
+    I imported our 2026 robot into the sim and configured its build frame (frame size, weight, gear ratio
+    and drivetrain) so it moves like the real thing. That way driver practice and autonomous tuning
+    transfer to the physical robot.
   </p>
-  <h3>Custom auto-aim targeting</h3>
+  <h3>Auto-aim targeting</h3>
   <p>
-    I wrote the auto-aim targeting script for the sim, implementing the same velocity-compensated
-    logic from my <a href="sotm.html">shoot-on-the-move system</a> so the simulated robot aims
-    the way the real one does. This meant drivers and programmers could practice with realistic
-    shooting behavior before touching the physical robot.
+    I wrote the sim&rsquo;s auto-aim script using the same velocity-compensated logic as my
+    <a href="sotm.html">shoot-on-the-move code</a>, so the simulated robot aims the way the real one does
+    and drivers can practice realistic shots before touching the physical robot.
   </p>
-  <h3>Multiplayer testing</h3>
+  <h3>Multiplayer practice</h3>
   <p>
-    I set up shared multiplayer sessions so a driver and a programmer can be in the same simulated
-    field at once &mdash; which is how real practice and strategy work actually happen, together
-    rather than in isolation.
+    I set up shared sessions so a driver and a programmer can be on the same simulated field at once,
+    which is how real practice and strategy work actually happen.
   </p>
 
   <h2>See it run</h2>
   <figure>
-    <img src="images/unity-sim.jpg" alt="CloSim running a match: the 5829 robot on the field intaking and scoring yellow game pieces, with a live alliance scoreboard." />
+    <img src="images/unity-sim.jpg" width="1200" height="780" loading="lazy" alt="A match running in CloSim with the Team 5829 robot on the field collecting and scoring yellow balls, and a live scoreboard." />
     <figcaption>A match running in CloSim with our robot on the field.</figcaption>
   </figure>
-
 </main>
 
-<footer class="footer">
-  <p>&copy; <span id="year"></span> Zhihao David Cui</p>
-  <p class="footer__built"><a href="index.html">Home</a> &middot; <a href="#top">Back to top</a></p>
+<footer class="site-footer">
+  <p>&copy; 2026 Zhihao David Cui</p>
+  <p><a href="index.html">Home</a></p>
 </footer>
 
-<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>

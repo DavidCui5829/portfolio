@@ -1,77 +1,49 @@
-# David Cui — Portfolio
+# David Cui, portfolio
 
-A personal portfolio site. Plain static site (HTML, CSS, JS) with **no build step**, so it
-deploys anywhere with zero configuration and a custom domain is just a DNS change later.
+Personal portfolio site. Plain static HTML and CSS with **no build step and no JavaScript**,
+deployed on Vercel from the `main` branch. Every push to `main` updates the live site.
 
 ```
 portfolio/
-├── index.html      # home: robotics, social impact, violin
-├── sotm.html       # writeup: shoot-on-the-move targeting system
-├── sim.html        # writeup: Unity robotics simulator
-├── styles.css      # styling (shared by all pages)
-├── main.js         # scroll reveals + footer year
-├── images/         # photos and logos
+├── index.html         # home: engineering, research, community, violin, recognition, contact
+├── sotm.html          # write-up: shoot-on-the-move targeting system
+├── sim.html           # write-up: robot simulator in CloSim (Unity)
+├── styles.css         # all styling, shared by every page
+├── sotm-diagram.svg   # vector diagram used on sotm.html
+├── sim-diagram.svg    # loop diagram used on sim.html
+├── *-diagram-tall.svg # narrow versions of both diagrams, shown on phones
+├── images/            # photos, screenshots and logos (all JPEG, each under 120 KB)
 └── README.md
 ```
 
 ## Run locally
 
-Just open `index.html` in a browser. Or, for a local server (fonts/canvas behave best this way):
+Open `index.html` in a browser, or serve the folder so fonts load the same way they do online:
 
 ```bash
-# Python 3
 python -m http.server 8000
 # then visit http://localhost:8000
 ```
 
-## Put it on GitHub
+## Design notes
 
-```bash
-git init
-git add .
-git commit -m "Initial portfolio"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
-git push -u origin main
-```
-
-After this, **every `git push` updates the live site automatically** once it's connected to a host.
-
-## Deploy to Vercel (use this now — free, no domain needed)
-
-1. Go to vercel.com and sign in with GitHub.
-2. **Add New → Project**, import this repo.
-3. Framework preset: **Other**. Leave build command and output empty (it's static).
-4. Deploy. You get a live URL like `your-portfolio.vercel.app`.
-
-That URL is fully live and shareable. You can put it in your Common App right away.
-
-## Add a custom domain later (no code changes)
-
-When you buy a domain (e.g. `davidcui.dev`):
-
-1. In Vercel: **Project → Settings → Domains → Add**, type your domain.
-2. Vercel shows you DNS records to add.
-3. In your registrar (Namecheap, Cloudflare, etc.), add those records.
-4. Wait a few minutes. The domain now points at the same deployment.
-
-Nothing in the code changes — the domain is just a new address for the same site.
-
-## Alternative host: GitHub Pages
-
-This also works with no changes:
-
-1. Repo **Settings → Pages**.
-2. Source: **Deploy from a branch**, branch `main`, folder `/ (root)`.
-3. Save. Site goes live at `YOUR_USERNAME.github.io/portfolio`.
-
-A custom domain can be added here too, under the same Pages settings.
+- **Look:** light engineering paper. Pale green sheet with a faint grid, graphite ink, one pine accent
+  (`--pine`) and a little gold (`--gold`). Colors live as variables at the top of `styles.css`.
+- **Type:** Schibsted Grotesk for headings, labels and the drawing, Source Serif 4 for reading text,
+  JetBrains Mono only for code on `sotm.html`.
+- **Hero drawing:** the launcher sketch is inline SVG in `index.html`, in a wide version and a narrow
+  version for phones and tablets (switched at 860 px). The three flights draw in once on load and stay
+  still for anyone with reduced motion turned on. On wide screens the question and the introduction sit
+  side by side so the drawing is on the first screen. On phones the drawing comes right after the question.
+- **No em dashes or semicolons** in site copy.
 
 ## Editing notes
 
-- **Keep claims checkable.** Every number on the site should be one you could back up if
-  someone asked. Prefer describing what you built and what you learned over headline stats.
-- **Images:** anything over ~300 KB should be resized before committing. Square logos use
-  `class="imgfill imgfill--logo"` so they aren't cropped; photos use plain `imgfill`.
-- **New writeup page:** copy `sim.html`, change the `<main class="page">` content. It picks up
-  the shared nav, footer, and styles automatically.
+- **Keep claims checkable.** Every number on the site should be one you could back up if asked, and it
+  should match your resume and Common App.
+- **Images:** resize anything over about 300 KB before committing, and keep `width` and `height` on
+  every `<img>` so the page doesn't jump while loading.
+- **New write-up page:** copy `sim.html` and replace what is inside `<main class="page">`. It picks up the
+  shared header, footer and styles.
+- **Updating the date:** the "Revised" field in the hero title block and the footer both say when the
+  site was last updated.

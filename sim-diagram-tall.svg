@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 560" font-family="'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-label="Diagram of the Unity robotics simulator loop. A custom robot model is imported into the Unity physics environment. The simulated field and sensors feed the same control code the real robot runs. Driver and programmer practice happens in a shared multiplayer session, and what is learned feeds back into the control code before it is deployed to the real robot.">
+  <defs>
+    <pattern id="g2-t" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#dfe7d9" stroke-width="1" opacity="0.5"/>
+    </pattern>
+    <marker id="a2-t" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24675a"/>
+    </marker>
+    <marker id="a2amber-t" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8c6024"/>
+    </marker>
+  </defs>
+
+  <rect width="380" height="560" fill="#f8faf5"/>
+  <rect width="380" height="560" fill="url(#g2-t)"/>
+
+  <!-- nodes, top to bottom -->
+  <!-- 1 model import -->
+  <rect x="100" y="24" width="180" height="64" rx="10" fill="rgba(36,103,90,0.08)" stroke="#24675a" stroke-width="1.5"/>
+  <text x="190" y="52" fill="#1c2521" font-size="14" font-weight="700" text-anchor="middle">Custom robot model</text>
+  <text x="190" y="71" fill="#5f6d66" font-size="11.5" text-anchor="middle">imported into the sim</text>
+
+  <!-- 2 unity physics -->
+  <rect x="100" y="124" width="180" height="80" rx="10" fill="rgba(140,96,36,0.10)" stroke="#8c6024" stroke-width="1.5"/>
+  <text x="190" y="152" fill="#1c2521" font-size="14" font-weight="700" text-anchor="middle">Unity physics</text>
+  <text x="190" y="171" fill="#5f6d66" font-size="11.5" text-anchor="middle">field, collisions,</text>
+  <text x="190" y="187" fill="#5f6d66" font-size="11.5" text-anchor="middle">simulated sensors</text>
+
+  <!-- 3 control code -->
+  <rect x="100" y="240" width="180" height="64" rx="10" fill="rgba(36,103,90,0.08)" stroke="#24675a" stroke-width="1.5"/>
+  <text x="190" y="268" fill="#1c2521" font-size="14" font-weight="700" text-anchor="middle">Control code</text>
+  <text x="190" y="287" fill="#5f6d66" font-size="11.5" text-anchor="middle">same as the real bot</text>
+
+  <!-- 4 multiplayer practice -->
+  <rect x="100" y="384" width="180" height="80" rx="10" fill="rgba(36,103,90,0.08)" stroke="#24675a" stroke-width="1.5"/>
+  <text x="190" y="412" fill="#1c2521" font-size="14" font-weight="700" text-anchor="middle">Multiplayer session</text>
+  <text x="190" y="431" fill="#5f6d66" font-size="11.5" text-anchor="middle">drivers and programmers</text>
+  <text x="190" y="447" fill="#5f6d66" font-size="11.5" text-anchor="middle">practice together</text>
+
+  <!-- arrows down the middle -->
+  <line x1="190" y1="88" x2="190" y2="118" stroke="#24675a" stroke-width="2" marker-end="url(#a2-t)"/>
+  <line x1="190" y1="204" x2="190" y2="234" stroke="#24675a" stroke-width="2" marker-end="url(#a2-t)"/>
+  <line x1="190" y1="304" x2="190" y2="378" stroke="#24675a" stroke-width="2" marker-end="url(#a2-t)"/>
+  <text x="182" y="346" fill="#24675a" font-size="11.5" text-anchor="end">commands</text>
+
+  <!-- sim -> practice, down the left side -->
+  <path d="M100 164 H56 V424 H94" fill="none" stroke="#8c6024" stroke-width="2" marker-end="url(#a2amber-t)"/>
+  <text x="62" y="346" fill="#8c6024" font-size="11.5">render</text>
+
+  <!-- practice -> control (feedback), up the right side -->
+  <path d="M280 424 H324 V272 H286" fill="none" stroke="#9aa89f" stroke-width="1.5" stroke-dasharray="5 6" marker-end="url(#a2-t)"/>
+  <text x="316" y="340" fill="#5f6d66" font-size="11.5" text-anchor="end">feedback:</text>
+  <text x="316" y="355" fill="#5f6d66" font-size="11.5" text-anchor="end">what we learn</text>
+
+  <text x="24" y="508" fill="#1c2521" font-size="12.5">Iterate in software first,</text>
+  <text x="24" y="526" fill="#1c2521" font-size="12.5">then deploy to the real robot.</text>
+</svg>

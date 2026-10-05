@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 570" font-family="'Schibsted Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif" role="img" aria-label="Shoot-on-the-move vector diagram. The robot moves with a velocity vector. A dashed line points to the real goal. The compensated aim point is offset from the goal by the lead vector, which equals velocity times time of flight, opposite to the direction of motion. The solid line from the robot to the compensated aim point is where the robot actually shoots.">
+  <defs>
+    <pattern id="grid-t" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#dfe7d9" stroke-width="1" opacity="0.5"/>
+    </pattern>
+    <marker id="arrowAmber-t" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#8c6024"/>
+    </marker>
+    <marker id="arrowTeal-t" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#24675a"/>
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect width="380" height="570" fill="#f8faf5"/>
+  <rect width="380" height="570" fill="url(#grid-t)"/>
+
+  <!-- naive line: robot -> real goal -->
+  <line x1="85" y1="430" x2="290" y2="110" stroke="#9aa89f" stroke-width="1.5" stroke-dasharray="5 6"/>
+  <text x="182" y="300" fill="#5f6d66" font-size="12">line to real goal</text>
+
+  <!-- lead vector: goal -> compensated aim (= -v * TOF) -->
+  <line x1="290" y1="110" x2="193" y2="134" stroke="#24675a" stroke-width="2" marker-end="url(#arrowTeal-t)" opacity="0.85"/>
+  <text x="262" y="92" fill="#24675a" font-size="12.5" text-anchor="end">lead = v &#215; TOF(d)</text>
+
+  <!-- actual shot: robot -> compensated aim -->
+  <line x1="85" y1="430" x2="193" y2="134" stroke="#24675a" stroke-width="2.5" marker-end="url(#arrowTeal-t)"/>
+  <text x="122" y="300" fill="#24675a" font-size="12.5" text-anchor="end">where to shoot</text>
+
+  <!-- velocity vector at robot -->
+  <line x1="85" y1="430" x2="158" y2="412" stroke="#8c6024" stroke-width="2.5" marker-end="url(#arrowAmber-t)"/>
+  <text x="168" y="416" fill="#8c6024" font-size="13" font-weight="700">v</text>
+  <text x="181" y="416" fill="#5f6d66" font-size="11.5">(robot velocity)</text>
+
+  <!-- goal marker -->
+  <circle cx="290" cy="110" r="16" fill="rgba(140,96,36,0.12)" stroke="#8c6024" stroke-width="2"/>
+  <circle cx="290" cy="110" r="4" fill="#8c6024"/>
+  <text x="314" y="108" fill="#8c6024" font-size="13" font-weight="700">Goal</text>
+  <text x="314" y="124" fill="#5f6d66" font-size="11">real target</text>
+
+  <!-- compensated aim marker -->
+  <circle cx="193" cy="134" r="11" fill="none" stroke="#24675a" stroke-width="1" opacity="0.5"/>
+  <circle cx="193" cy="134" r="5" fill="#24675a"/>
+  <text x="176" y="130" fill="#24675a" font-size="12.5" font-weight="700" text-anchor="end">aim</text>
+  <text x="176" y="145" fill="#5f6d66" font-size="11" text-anchor="end">compensated point</text>
+
+  <!-- robot marker: with no turret, the whole chassis points along the shot -->
+  <g transform="translate(85 430) rotate(-70)">
+    <rect x="-15" y="-15" width="30" height="30" rx="3" fill="rgba(36,103,90,0.10)" stroke="#24675a" stroke-width="2"/>
+    <path d="M15 0 L4 -7 L4 7 Z" fill="#24675a"/>
+  </g>
+  <text x="85" y="472" fill="#5f6d66" font-size="11.5" text-anchor="middle">robot (no turret)</text>
+
+  <!-- caption -->
+  <text x="22" y="512" fill="#1c2521" font-size="13">Because the ball is in the air for TOF seconds,</text>
+  <text x="22" y="530" fill="#1c2521" font-size="13">the robot aims <tspan fill="#24675a">opposite its own motion</tspan> so</text>
+  <text x="22" y="548" fill="#1c2521" font-size="13">the moving ball drifts into the goal.</text>
+</svg>
