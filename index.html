@@ -57,70 +57,76 @@
     </div>
 
     <figure class="sheet">
-      <!-- wide version -->
-      <svg class="sheet__art sheet__art--wide" viewBox="0 56 1120 262" role="img" aria-labelledby="art-w-title art-w-desc">
-        <title id="art-w-title">Sketch of the dual-flywheel launcher and three ball flights</title>
-        <desc id="art-w-desc">A launcher with two wheels fires a ball up and to the right. Three flight paths are drawn. The topspin flight lands closest, the no-spin flight lands in the middle, and the backspin flight goes highest and lands farthest.</desc>
-        <line class="art-line" x1="40" y1="268" x2="1080" y2="268" />
-        <line class="art-line" x1="196.2" y1="199" x2="196.2" y2="268" />
-        <line class="art-base" x1="162" y1="268" x2="230" y2="268" />
-        <rect class="art-solid" x="-47" y="-13" width="94" height="26" rx="13" transform="translate(196.2 199) rotate(60)" />
-        <circle class="art-solid" cx="179.7" cy="170.4" r="25" />
-        <circle class="art-thin" cx="179.7" cy="170.4" r="9" />
-        <circle class="art-dot" cx="179.7" cy="170.4" r="2.5" />
-        <circle class="art-solid" cx="212.7" cy="227.6" r="25" />
-        <circle class="art-thin" cx="212.7" cy="227.6" r="9" />
-        <circle class="art-dot" cx="212.7" cy="227.6" r="2.5" />
-        <text class="art-label" x="40" y="92">Dual-flywheel launcher</text>
-        <line class="art-thin" x1="104" y1="102" x2="161" y2="151" />
-        <circle class="art-dot" cx="161.5" cy="151.5" r="2.5" />
-
-        <path class="traj traj--top" pathLength="1" d="M236 176 C409.2 76 590 70 660 262" />
-        <path class="traj traj--none" pathLength="1" d="M236 176 C443.8 56 770 50 850 262" />
-        <path class="traj traj--back" pathLength="1" d="M236 176 C478.5 36 930 20 1040 262" />
-        <circle class="art-ball" cx="236" cy="176" r="9" />
-
-        <circle class="land land--top" cx="660" cy="262" r="6" />
-        <circle class="land land--none" cx="850" cy="262" r="6" />
-        <circle class="land land--back" cx="1040" cy="262" r="6" />
-        <text class="art-label art-label--top land-label land-label--top" x="660" y="298" text-anchor="middle">Topspin</text>
-        <text class="art-label land-label land-label--none" x="850" y="298" text-anchor="middle">No spin</text>
-        <text class="art-label art-label--back land-label land-label--back" x="1040" y="298" text-anchor="middle">Backspin</text>
-      </svg>
-
-      <!-- narrow version for phones -->
-      <svg class="sheet__art sheet__art--tall" viewBox="0 150 600 350" role="img" aria-labelledby="art-t-title art-t-desc">
-        <title id="art-t-title">Sketch of the dual-flywheel launcher and three ball flights</title>
-        <desc id="art-t-desc">A launcher with two wheels fires a ball up and to the right. The topspin flight lands closest, the no-spin flight lands in the middle, and the backspin flight goes highest and lands farthest.</desc>
-        <line class="art-line" x1="20" y1="430" x2="580" y2="430" />
-        <line class="art-line" x1="81" y1="346" x2="81" y2="430" />
-        <line class="art-base" x1="42" y1="430" x2="120" y2="430" />
-        <rect class="art-solid" x="-54" y="-15" width="108" height="30" rx="15" transform="translate(81 346) rotate(60)" />
-        <circle class="art-solid" cx="62" cy="313.1" r="29" />
-        <circle class="art-thin" cx="62" cy="313.1" r="10" />
-        <circle class="art-dot" cx="62" cy="313.1" r="3" />
-        <circle class="art-solid" cx="100" cy="378.9" r="29" />
-        <circle class="art-thin" cx="100" cy="378.9" r="10" />
-        <circle class="art-dot" cx="100" cy="378.9" r="3" />
-        <text class="art-label" x="24" y="196">Dual-flywheel launcher</text>
-        <line class="art-thin" x1="52" y1="208" x2="43" y2="290" />
-        <circle class="art-dot" cx="43" cy="291" r="3" />
-
-        <path class="traj traj--top" pathLength="1" d="M126 320 C299.2 220 320 210 322 422" />
-        <path class="traj traj--none" pathLength="1" d="M126 320 C342.5 195 425 175 432 422" />
-        <path class="traj traj--back" pathLength="1" d="M126 320 C385.8 170 530 120 536 422" />
-        <circle class="art-ball" cx="126" cy="320" r="11" />
-
-        <circle class="land land--top" cx="322" cy="422" r="8" />
-        <circle class="land land--none" cx="432" cy="422" r="8" />
-        <circle class="land land--back" cx="536" cy="422" r="8" />
-        <text class="art-label art-label--top land-label land-label--top" x="322" y="468" text-anchor="middle">Topspin</text>
-        <text class="art-label land-label land-label--none" x="432" y="468" text-anchor="middle">No spin</text>
-        <text class="art-label art-label--back land-label land-label--back" x="536" y="468" text-anchor="middle">Backspin</text>
-      </svg>
+      <div class="sheet__panels">
+        <div class="sheet__photo">
+          <img src="images/launcher-setup.jpg" width="850" height="740" alt="My Extended Essay launcher set up on the floor: a plywood frame angled at 45 degrees holding two motors and two stacks of rubber wheels, wired to a battery and a power board, with the orange lacrosse ball and a tape measure in front." />
+        </div>
+        <div class="sheet__plot">
+          <svg class="sheet__art sheet__art--wide" viewBox="0 0 720 290" role="img" aria-labelledby="plot-w-title plot-w-desc">
+            <title id="plot-w-title">Where the ball landed, drawn to scale</title>
+            <desc id="plot-w-desc">Side view of three flights launched at 45 degrees from 0.165 meters above the floor. With topspin the ball landed 2.215 meters away on average, with no spin 2.334 meters, and with backspin 2.451 meters.</desc>
+            <line class="art-line" x1="22" y1="236" x2="704" y2="236" />
+            <line class="art-thin" x1="44" y1="236" x2="44" y2="244" />
+            <text class="art-label art-label--muted art-label--tick" x="44" y="262" text-anchor="middle">0</text>
+            <line class="art-thin" x1="164" y1="236" x2="164" y2="244" />
+            <text class="art-label art-label--muted art-label--tick" x="164" y="262" text-anchor="middle">0.5</text>
+            <line class="art-thin" x1="284" y1="236" x2="284" y2="244" />
+            <text class="art-label art-label--muted art-label--tick" x="284" y="262" text-anchor="middle">1.0</text>
+            <line class="art-thin" x1="404" y1="236" x2="404" y2="244" />
+            <text class="art-label art-label--muted art-label--tick" x="404" y="262" text-anchor="middle">1.5</text>
+            <line class="art-thin" x1="524" y1="236" x2="524" y2="244" />
+            <text class="art-label art-label--muted art-label--tick" x="524" y="262" text-anchor="middle">2.0</text>
+            <line class="art-thin" x1="644" y1="236" x2="644" y2="244" />
+            <text class="art-label art-label--muted art-label--tick" x="644" y="262" text-anchor="middle">2.5 m</text>
+            <line class="art-thin art-dash" x1="44" y1="196.4" x2="44" y2="236" />
+            <circle class="art-ball" cx="44" cy="196.4" r="7" />
+            <text class="art-label art-label--muted art-label--small" x="58" y="224">Launch at 45&#176;</text>
+            <path class="traj traj--top" pathLength="1" d="M44 196.4 Q309.8 -69.4 575.6 236" />
+            <path class="traj traj--none" pathLength="1" d="M44 196.4 Q324.1 -83.7 604.2 236" />
+            <path class="traj traj--back" pathLength="1" d="M44 196.4 Q338.1 -97.7 632.2 236" />
+            <circle class="land land--top" cx="575.6" cy="236" r="5" />
+            <circle class="land land--none" cx="604.2" cy="236" r="5" />
+            <circle class="land land--back" cx="632.2" cy="236" r="5" />
+            <text class="art-label art-label--muted art-label--small" x="486" y="28">Average landing distance</text>
+            <g class="land-label land-label--back"><line class="key key--back" x1="486" y1="45" x2="510" y2="45" /><text class="art-label art-label--back" x="518" y="50">Backspin</text><text class="art-label art-label--back" x="704" y="50" text-anchor="end">2.451 m</text></g>
+            <g class="land-label land-label--none"><line class="key key--none" x1="486" y1="69" x2="510" y2="69" /><text class="art-label art-label--none" x="518" y="74">No spin</text><text class="art-label art-label--none" x="704" y="74" text-anchor="end">2.334 m</text></g>
+            <g class="land-label land-label--top"><line class="key key--top" x1="486" y1="93" x2="510" y2="93" /><text class="art-label art-label--top" x="518" y="98">Topspin</text><text class="art-label art-label--top" x="704" y="98" text-anchor="end">2.215 m</text></g>
+          </svg>
+          <svg class="sheet__art sheet__art--tall" viewBox="0 72 380 252" role="img" aria-labelledby="plot-t-title plot-t-desc">
+            <title id="plot-t-title">Where the ball landed, drawn to scale</title>
+            <desc id="plot-t-desc">Side view of three flights launched at 45 degrees from 0.165 meters above the floor. With topspin the ball landed 2.215 meters away on average, with no spin 2.334 meters, and with backspin 2.451 meters.</desc>
+            <line class="art-line" x1="8" y1="196" x2="366" y2="196" />
+            <line class="art-thin" x1="30" y1="196" x2="30" y2="203" />
+            <text class="art-label art-label--muted art-label--tick" x="30" y="218" text-anchor="middle">0</text>
+            <line class="art-thin" x1="94" y1="196" x2="94" y2="203" />
+            <text class="art-label art-label--muted art-label--tick" x="94" y="218" text-anchor="middle">0.5</text>
+            <line class="art-thin" x1="158" y1="196" x2="158" y2="203" />
+            <text class="art-label art-label--muted art-label--tick" x="158" y="218" text-anchor="middle">1.0</text>
+            <line class="art-thin" x1="222" y1="196" x2="222" y2="203" />
+            <text class="art-label art-label--muted art-label--tick" x="222" y="218" text-anchor="middle">1.5</text>
+            <line class="art-thin" x1="286" y1="196" x2="286" y2="203" />
+            <text class="art-label art-label--muted art-label--tick" x="286" y="218" text-anchor="middle">2.0</text>
+            <line class="art-thin" x1="350" y1="196" x2="350" y2="203" />
+            <text class="art-label art-label--muted art-label--tick" x="350" y="218" text-anchor="middle">2.5 m</text>
+            <line class="art-thin art-dash" x1="30" y1="174.9" x2="30" y2="196" />
+            <circle class="art-ball" cx="30" cy="174.9" r="6" />
+            <text class="art-label art-label--muted art-label--small" x="40" y="188">Launch at 45&#176;</text>
+            <path class="traj traj--top" pathLength="1" d="M30 174.9 Q171.8 33.1 313.5 196" />
+            <path class="traj traj--none" pathLength="1" d="M30 174.9 Q179.4 25.5 328.8 196" />
+            <path class="traj traj--back" pathLength="1" d="M30 174.9 Q186.9 18 343.7 196" />
+            <circle class="land land--top" cx="313.5" cy="196" r="4" />
+            <circle class="land land--none" cx="328.8" cy="196" r="4" />
+            <circle class="land land--back" cx="343.7" cy="196" r="4" />
+            <text class="art-label art-label--muted art-label--small" x="30" y="250">Average landing distance</text>
+            <g class="land-label land-label--back"><line class="key key--back" x1="30" y1="265" x2="54" y2="265" /><text class="art-label art-label--back" x="62" y="270">Backspin</text><text class="art-label art-label--back" x="352" y="270" text-anchor="end">2.451 m</text></g>
+            <g class="land-label land-label--none"><line class="key key--none" x1="30" y1="287" x2="54" y2="287" /><text class="art-label art-label--none" x="62" y="292">No spin</text><text class="art-label art-label--none" x="352" y="292" text-anchor="end">2.334 m</text></g>
+            <g class="land-label land-label--top"><line class="key key--top" x1="30" y1="309" x2="54" y2="309" /><text class="art-label art-label--top" x="62" y="314">Topspin</text><text class="art-label art-label--top" x="352" y="314" text-anchor="end">2.215 m</text></g>
+          </svg>
+        </div>
+      </div>
 
       <figcaption class="sheet__foot">
-        <p class="sheet__note">Sketch, not to scale. In my Extended Essay tests, backspin carried the ball farthest and topspin the shortest distance.</p>
+        <p class="sheet__note">From my Extended Essay, drawn to scale. Each distance is the average of five launches, with the wheels 2000 RPM apart for topspin and backspin and matched for no spin.</p>
         <dl class="titleblock">
           <div><dt>Name</dt><dd>Zhihao (David) Cui</dd></div>
           <div><dt>Class</dt><dd>2027</dd></div>
@@ -155,45 +161,23 @@
           <p class="project__meta">IB Physics Extended Essay, 2025 to 2026</p>
           <p>
             I wanted to measure how spin changes a lacrosse ball&rsquo;s flight, so I designed and built a
-            launcher with two flywheels. The speed difference between the wheels sets the spin and their
-            average speed sets the launch speed, so I could change one without changing the other.
+            launcher from FRC parts. A laser-cut plywood frame holds it at 45 degrees, and two NEO Vortex
+            motors each drive a stack of rubber wheels, one above the ball and one below. The speed
+            difference between the wheels sets the spin and their average speed sets the launch speed, so I
+            could change one without changing the other.
           </p>
           <p>
-            Over repeated launches with backspin, topspin and no spin, topspin shortened the flight and
-            backspin lengthened it, as the Magnus effect predicts. Our competition robot&rsquo;s shooter
-            also uses two flywheels.
+            I launched the ball five times at each of nine settings, from the top wheel spinning 2000 RPM
+            faster than the bottom (topspin) to the reverse (backspin). The average landing distance rose
+            from 2.215 m to 2.451 m, against
+            2.334 m with no spin, as the Magnus effect predicts. The shift was about six times larger than
+            my prediction from published baseball data. Our competition robot&rsquo;s shooter also uses two
+            flywheels.
           </p>
         </div>
         <figure class="project__media">
-          <div class="detail">
-            <svg viewBox="0 0 400 340" role="img" aria-labelledby="det-title det-desc">
-              <title id="det-title">How the two wheels grip and launch the ball</title>
-              <desc id="det-desc">Two wheels, one above the other, push the ball out to the right between them. The top wheel turns counterclockwise and the bottom wheel turns clockwise.</desc>
-              <defs>
-                <marker id="det-arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-                  <path class="art-arrowhead" d="M0 0 L10 5 L0 10 Z" />
-                </marker>
-              </defs>
-              <path class="art-arrow" d="M245.2 52.8 A78 78 0 0 0 134.8 52.8" marker-end="url(#det-arrow)" />
-              <path class="art-arrow" d="M245.2 291.2 A78 78 0 0 1 134.8 291.2" marker-end="url(#det-arrow)" />
-              <circle class="art-solid" cx="190" cy="108" r="62" />
-              <circle class="art-thin" cx="190" cy="108" r="18" />
-              <circle class="art-dot" cx="190" cy="108" r="3.5" />
-              <circle class="art-solid" cx="190" cy="236" r="62" />
-              <circle class="art-thin" cx="190" cy="236" r="18" />
-              <circle class="art-dot" cx="190" cy="236" r="3.5" />
-              <circle class="art-ball" cx="262" cy="172" r="22" />
-              <line class="art-arrow" x1="294" y1="172" x2="352" y2="172" marker-end="url(#det-arrow)" />
-              <text class="art-label" x="14" y="114">Top wheel</text>
-              <text class="art-label" x="14" y="242">Bottom wheel</text>
-              <text class="art-label art-label--muted" x="326" y="154" text-anchor="middle">Launch</text>
-            </svg>
-          </div>
-          <figcaption>
-            The speed difference between the wheels sets the spin. A faster bottom wheel gives backspin
-            and a longer flight, and a faster top wheel gives topspin and a shorter one. Their average
-            speed sets the launch speed.
-          </figcaption>
+          <img src="images/launcher-cad.jpg" width="760" height="956" loading="lazy" alt="CAD model of the launcher: two angled side plates, a motor on each, two stacks of wheels between the plates, and the ball held in the gap between the wheels." />
+          <figcaption>My CAD model of the launcher, with the ball in the gap between the two wheel stacks.</figcaption>
         </figure>
       </article>
 

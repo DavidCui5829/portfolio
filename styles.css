@@ -148,9 +148,18 @@ a:hover { color: var(--pine-dk); text-decoration-thickness: 2px; }
   background-size: 80px 80px, 80px 80px, 16px 16px, 16px 16px;
   background-position: -1px -1px;
 }
+/* the launcher photo and the to-scale plot: stacked on small screens, side by side on wide ones */
+.sheet__panels { display: grid; grid-template-columns: minmax(0, 1fr); }
+.sheet__photo { margin: 0; border-bottom: 1.5px solid var(--ink); background: var(--ink); }
+.sheet__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 60%; }
+@media (min-width: 900px) {
+  .sheet__panels { grid-template-columns: minmax(0, 0.46fr) minmax(0, 1fr); }
+  .sheet__photo { position: relative; border-bottom: 0; border-right: 1.5px solid var(--ink); }
+  .sheet__photo img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+}
 .sheet__art { display: block; width: 100%; height: auto; }
-.sheet__art--tall { display: none; max-width: 600px; margin: 0 auto; }
-@media (max-width: 860px) {
+.sheet__art--tall { display: none; }
+@media (max-width: 600px) {
   .sheet__art--wide { display: none; }
   .sheet__art--tall { display: block; }
 }
@@ -171,38 +180,37 @@ a:hover { color: var(--pine-dk); text-decoration-thickness: 2px; }
 .titleblock > div:last-child { grid-column: 1 / -1; border-right: 0; border-bottom: 0; }
 .titleblock dt { font-family: var(--display); font-size: 0.72rem; color: var(--muted); line-height: 1.3; }
 .titleblock dd { margin: 0; font-family: var(--display); font-weight: 600; font-size: 0.95rem; color: var(--ink); line-height: 1.3; }
-@media (max-width: 860px) {
+@media (max-width: 899px) {
   .sheet__foot { grid-template-columns: 1fr; }
   .titleblock { border-left: 0; border-top: 1.5px solid var(--ink); }
 }
 
-/* drawing elements (shared by the hero and the launcher detail) */
-.art-line { fill: none; stroke: var(--ink); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+/* plot elements */
+.art-line { fill: none; stroke: var(--ink); stroke-width: 1.75; stroke-linecap: round; }
 .art-thin { fill: none; stroke: var(--ink); stroke-width: 1.1; }
-.art-solid { fill: var(--sheet); stroke: var(--ink); stroke-width: 1.75; }
-.art-dot { fill: var(--ink); }
-.art-base { fill: none; stroke: var(--ink); stroke-width: 3.5; stroke-linecap: round; }
+.art-dash { stroke: var(--muted); stroke-dasharray: 3 4; }
 .art-ball { fill: var(--sheet); stroke: var(--pine); stroke-width: 2.25; }
-.art-label { font-family: var(--display); font-size: 17px; fill: var(--ink); }
+.art-label { font-family: var(--display); font-size: 15px; fill: var(--ink); }
 .art-label--muted { fill: var(--muted); }
-.art-arrow { fill: none; stroke: var(--pine); stroke-width: 2; stroke-linecap: round; }
-.art-arrowhead { fill: var(--pine); }
+.art-label--tick { font-size: 14px; }
+.art-label--small { font-size: 13px; }
+.sheet__art--tall .art-label { font-size: 13.5px; }
+.sheet__art--tall .art-label--tick { font-size: 12.5px; }
+.sheet__art--tall .art-label--small { font-size: 12px; }
 
-.traj { fill: none; stroke-linecap: round; }
-.traj--top  { stroke: var(--gold); stroke-width: 2.4; }
-.traj--none { stroke: var(--ink);  stroke-width: 1.8; }
-.traj--back { stroke: var(--pine); stroke-width: 3; }
-.land { stroke-width: 2.2; fill: var(--sheet); }
+.traj { fill: none; stroke-linecap: round; stroke-width: 2.2; }
+.traj--top, .key--top   { stroke: var(--gold); }
+.traj--none, .key--none { stroke: var(--ink); }
+.traj--back, .key--back { stroke: var(--pine); }
+.key { stroke-width: 2.6; stroke-linecap: round; }
+.land { stroke-width: 2; fill: var(--sheet); }
 .land--top  { stroke: var(--gold); }
 .land--none { stroke: var(--ink); }
 .land--back { stroke: var(--pine); }
 .art-label--top  { fill: var(--gold); font-weight: 600; }
 .art-label--back { fill: var(--pine); font-weight: 700; }
-.sheet__art--wide .art-label { font-size: 18px; }
-.sheet__art--tall .art-label { font-size: 23px; }
-@media (min-width: 641px) { .sheet__art--tall .art-label { font-size: 19px; } }
 
-/* the one moving moment: the three flights draw in once on load */
+/* the one moving moment: the three measured flights draw in once on load */
 @media (prefers-reduced-motion: no-preference) {
   .traj { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.5s cubic-bezier(0.3, 0.1, 0.25, 1) forwards; }
   .traj--top  { animation-delay: 0.25s; }
@@ -284,14 +292,6 @@ a:hover { color: var(--pine-dk); text-decoration-thickness: 2px; }
 .project__media figcaption, .caption {
   margin-top: 8px; font-family: var(--display); font-size: 0.85rem; line-height: 1.45; color: var(--muted);
 }
-.detail {
-  border: 1.5px solid var(--ink); background-color: var(--sheet);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 16px 16px; background-position: -1px -1px;
-}
-.detail svg { display: block; width: 100%; height: auto; }
 @media (max-width: 760px) {
   .project { grid-template-columns: minmax(0, 1fr); }
 }

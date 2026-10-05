@@ -31,10 +31,11 @@ python -m http.server 8000
   (`--pine`) and a little gold (`--gold`). Colors live as variables at the top of `styles.css`.
 - **Type:** Schibsted Grotesk for headings, labels and the drawing, Source Serif 4 for reading text,
   JetBrains Mono only for code on `sotm.html`.
-- **Hero drawing:** the launcher sketch is inline SVG in `index.html`, in a wide version and a narrow
-  version for phones and tablets (switched at 860 px). The three flights draw in once on load and stay
-  still for anyone with reduced motion turned on. On wide screens the question and the introduction sit
-  side by side so the drawing is on the first screen. On phones the drawing comes right after the question.
+- **Hero figure:** a photo of the Extended Essay launcher next to a to-scale plot of its measured
+  average landing distances (topspin 2.215 m, no spin 2.334 m, backspin 2.451 m, launched at 45 degrees
+  from 0.165 m). The plot is inline SVG in `index.html`, in a wide version and a narrow one for phones
+  (switched at 600 px). Each flight is an exact parabola through the launch point and its landing point.
+  The flights draw in once on load and stay still for anyone with reduced motion turned on.
 - **No em dashes or semicolons** in site copy.
 
 ## Editing notes
