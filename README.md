@@ -13,6 +13,7 @@ portfolio/
 ├── sim-diagram.svg    # loop diagram used on sim.html
 ├── *-diagram-tall.svg # narrow versions of both diagrams, shown on phones
 ├── images/            # photos, screenshots and logos (all JPEG, each under 150 KB)
+├── video/             # short clips, H.264 MP4, loaded only when someone presses play
 └── README.md
 ```
 
