@@ -41,7 +41,8 @@ python -m http.server 8000
   back to the section whenever the page changes height (fonts or photos loading, which Safari does not
   correct for), until the visitor scrolls or follows another link. `/violin` is a short link to the same
   place for documents and apps that drop everything after `#`. Add another section the same way by
-  copying `violin/index.html` into a new folder and changing the three `#violin` references.
+  copying `violin/index.html` into a new folder named after the section and replacing
+  every `violin` and the description inside it.
 - **Hero figure:** a photo of the Extended Essay launcher next to a to-scale plot of its measured
   average landing distances (topspin 2.215 m, no spin 2.334 m, backspin 2.451 m, launched at 45 degrees
   from 0.165 m). The plot is inline SVG in `index.html`, in a wide version and a narrow one for phones
