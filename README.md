@@ -16,6 +16,7 @@ portfolio/
 ├── fonts/             # the three typefaces as WOFF2, served from this site, with their OFL licenses
 ├── images/            # photos, screenshots and logos (all JPEG, each under 150 KB)
 ├── video/             # short clips, H.264 MP4, loaded only when someone presses play
+├── violin/            # short link /violin that forwards to /#violin (for apps that drop the #)
 └── README.md
 ```
 
@@ -36,8 +37,11 @@ python -m http.server 8000
   JetBrains Mono only for code on `sotm.html`. The fonts are self-hosted in `fonts/` (no Google Fonts
   request), so pages render fast and still work where Google is blocked.
 - **Section links:** smooth scrolling only applies to clicks inside the page. A visitor arriving from a
-  link like `/#violin` jumps straight there, and the script in `index.html` re-lands them once fonts
-  and photos have loaded, unless they have started scrolling.
+  link like `/#violin` jumps straight there. For the first ten seconds the script in `index.html` jumps
+  back to the section whenever the page changes height (fonts or photos loading, which Safari does not
+  correct for), until the visitor scrolls or follows another link. `/violin` is a short link to the same
+  place for documents and apps that drop everything after `#`. Add another section the same way by
+  copying `violin/index.html` into a new folder and changing the three `#violin` references.
 - **Hero figure:** a photo of the Extended Essay launcher next to a to-scale plot of its measured
   average landing distances (topspin 2.215 m, no spin 2.334 m, backspin 2.451 m, launched at 45 degrees
   from 0.165 m). The plot is inline SVG in `index.html`, in a wide version and a narrow one for phones

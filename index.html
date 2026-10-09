@@ -413,20 +413,31 @@
 
 <script>
   /* Links from elsewhere (like #violin in an application) should land exactly on their section.
-     If fonts or photos above it finish loading after the first jump and push it down the page,
-     jump to it again once everything has settled, unless the visitor has already scrolled. */
+     Fonts or photos that finish loading after the first jump can push the section down the page,
+     and Safari on iPhone does not correct for that. So for the first ten seconds, jump back to the
+     section whenever the page changes height, until the visitor scrolls or follows another link. */
   (function () {
     var id = decodeURIComponent(location.hash.slice(1));
-    if (!id || !document.getElementById(id)) return;
-    var touched = false;
-    ["wheel", "touchstart", "keydown", "mousedown"].forEach(function (type) {
-      addEventListener(type, function () { touched = true; }, { once: true, passive: true });
-    });
-    function land() {
-      var target = document.getElementById(id);
-      if (!touched && target) target.scrollIntoView();
+    var target = id && document.getElementById(id);
+    if (!target) return;
+    var done = false;
+    function stop() { done = true; }
+    function land() { if (!done) target.scrollIntoView(); }
+    addEventListener("wheel", stop, { passive: true });
+    addEventListener("touchmove", stop, { passive: true });
+    addEventListener("hashchange", stop);
+    addEventListener("pointerdown", function (e) { if (e.pointerType === "mouse") stop(); });
+    addEventListener("keydown", function (e) { if (/^(Arrow|Page|Home|End| )/.test(e.key)) stop(); });
+    land();
+    if (window.ResizeObserver) {
+      var watcher = new ResizeObserver(land);
+      watcher.observe(document.body);
+      setTimeout(function () { watcher.disconnect(); }, 10000);
     }
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(land);
+    if (document.fonts) {
+      document.fonts.ready.then(land);
+      if (document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", land);
+    }
     addEventListener("load", land);
   })();
 </script>
